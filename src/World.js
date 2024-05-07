@@ -233,7 +233,7 @@ function initTextures() {
   // Register the event handler to be called on loading an image
   image1.onload = function(){ sendTextureToGLSL1(image1); };
   // Tell the browser to load an image
-  image1.src = 'skin2.jpg';
+  image1.src = 'skin1.jpg';
 
   return true;
 }
@@ -274,7 +274,7 @@ function sendTextureToGLSL1(image) {
 
   gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1); // Flip the image's y axis
   // Enable texture unit0
-  gl.activeTexture(gl.TEXTURE0);
+  gl.activeTexture(gl.TEXTURE1);
   // Bind the texture object to the target
   gl.bindTexture(gl.TEXTURE_2D, texture);
 
@@ -454,15 +454,16 @@ function renderAllShapes(){
   //Draw a test triangle
   //drawTriangle3D([-1.0,0.0,0.0, -0.5,-1.0,0.0, 0.0,0.0,0.0]);
 
-
   //Draw a sky
+  
   var skybox = new Cube();
   skybox.color = blue;
-  //skybox.textureNum = -2;
+  skybox.textureNum = 0;
   skybox.matrix.scale(100, 100,100);
   skybox.matrix.translate(-0.02, -0.006, 0.02);
   skybox.render();
 
+  
   // Ground
   var ground = new Cube();
   ground.color = [1.0, 1.0, 1.0, 1.0];
@@ -477,6 +478,7 @@ function renderAllShapes(){
   //Draw a body cube
   var body = new Cylinder();
   body.color = white;
+  body.textureNum = -3;
   body.matrix.translate(0, .25, 0.1);
   var bodyMat1 = new Matrix4(body.matrix);
   var bodyMat2 = new Matrix4(body.matrix);
