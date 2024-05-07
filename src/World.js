@@ -228,12 +228,12 @@ function initTextures() {
   // Register the event handler to be called on loading an image
   image.onload = function(){ sendTextureToGLSL(image); };
   // Tell the browser to load an image
-  image.src = 'ground.jpg';
+  image.src = 'gound1.jpg';
 
   // Register the event handler to be called on loading an image
   image1.onload = function(){ sendTextureToGLSL1(image1); };
   // Tell the browser to load an image
-  image1.src = 'skin.jpg';
+  image1.src = 'skin2.jpg';
 
   return true;
 }
@@ -470,7 +470,7 @@ function renderAllShapes(){
   //ground.matrix.translate(0, 0, 0);
   //ground.matrix.scale(80,80, 80);
   ground.matrix.translate(-2, -0.39, 3);
-  ground.matrix.scale(80,-.25, 80);
+  ground.matrix.scale(64,-.25, 64);
   //ground.matrix.rotate(180,1,0,0);
   ground.render();
 
@@ -478,7 +478,6 @@ function renderAllShapes(){
   var body = new Cylinder();
   body.color = white;
   body.matrix.translate(0, .25, 0.1);
-  body.textureNum = -3;
   var bodyMat1 = new Matrix4(body.matrix);
   var bodyMat2 = new Matrix4(body.matrix);
   var bodyMat3 = new Matrix4(body.matrix);
